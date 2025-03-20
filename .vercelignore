@@ -1,0 +1,4 @@
+venv/
+temp_libs/
+__pycache__/
+uploads/
