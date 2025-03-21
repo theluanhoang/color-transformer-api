@@ -44,7 +44,7 @@ async def hello():
 
 @app.post("/")
 async def test(
-    name: str       
+    name: str = Body(...)  # Nhận 'name' từ body của request
 ):
     return {"message": name}
 
