@@ -8,12 +8,11 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Cho phép CORS để chấp nhận request từ frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Hoặc đặt IP frontend nếu biết trước
+    allow_origins=["*"],  
     allow_credentials=True,
-    allow_methods=["*"],  # Đảm bảo POST không bị chặn
+    allow_methods=["*"],  
     allow_headers=["*"],
 )
 
@@ -42,6 +41,13 @@ def apply_color_transfer(source_path, target_path, output_path):
 @app.get("/")
 async def hello():
     return {"message": "Hello"}
+
+@app.post("/")
+async def test(
+    name: str       
+):
+    return {"message": name}
+
 
 @app.post("/upload/")
 async def upload_images(
